@@ -1,0 +1,11 @@
+Changes
+DesktopEntry.pm
+MANIFEST
+Makefile.PL
+README
+configure
+t/00_use_ok.t
+t/10_entry_object.t
+t/foo.datadump
+t/foo.desktop
+META.yml                                 Module meta-data (added by MakeMaker)

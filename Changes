@@ -1,0 +1,6 @@
+0.02  Sat Oct  8 2005
+      - Fixed proper conversion between paths and uris
+      - Added wants_list() and wants_uris()
+
+0.01  Mon Oct  3 2005
+      - Initial Release
