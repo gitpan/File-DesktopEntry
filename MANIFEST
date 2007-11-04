@@ -1,11 +1,14 @@
+Build.PL
 Changes
-DesktopEntry.pm
-MANIFEST
-Makefile.PL
-README
 configure
-t/00_use_ok.t
-t/10_entry_object.t
-t/foo.datadump
-t/foo.desktop
-META.yml                                 Module meta-data (added by MakeMaker)
+lib/File/DesktopEntry.pm
+Makefile.PL
+MANIFEST
+META.yml
+README
+t/01_data.t
+t/02_DesktopEntry.t
+t/03_run.t
+t/04_pod_ok.t
+t/05_pod_cover.t
+t/applications/foo.desktop

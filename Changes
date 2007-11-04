@@ -1,3 +1,10 @@
+0.03  Sun Nov  4 2007
+      - Added support for writing Desktop Entry files
+      - Updated to version 1.0 of the specification
+      - Added much more sanity checks while handling data
+      - Extended unit tests to almost full coverage
+      - Added support for basic functions on Windows
+
 0.02  Sat Oct  8 2005
       - Fixed proper conversion between paths and uris
       - Added wants_list() and wants_uris()

@@ -1,11 +1,25 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         File-DesktopEntry
-version:      0.02
-version_from: DesktopEntry.pm
-installdirs:  site
+---
+name: File-DesktopEntry
+version: 0.03
+author:
+  - 'Jaap Karssenberg <pardus@cpan.org>'
+abstract: Object to handle .desktop files
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
-    File::Spec:                    0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+  Carp: 0
+  File::BaseDir: 0.03
+  File::Path: 0
+  File::Spec: 0
+build_requires:
+  Module::Build: 0.24
+  Test::More: 0
+provides:
+  File::DesktopEntry:
+    file: lib/File/DesktopEntry.pm
+    version: 0.03
+generated_by: Module::Build version 0.2806
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
