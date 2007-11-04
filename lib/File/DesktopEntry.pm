@@ -3,11 +3,10 @@ package File::DesktopEntry;
 use strict;
 use vars qw/$AUTOLOAD/;
 use Carp;
-use POSIX qw/setlocale LC_MESSAGES/;
 use File::Spec;
 use File::BaseDir 0.03 qw/data_files data_home/;
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 our $VERBOSE = 0;
 
 if ($^O eq 'MSWin32') {
@@ -46,6 +45,9 @@ Please remember: case is significant for the names of Desktop Entry keys.
 You can set the global variable C<$File::DesktopEntry::VERBOSE>. If set the
 module print a warning every time a command gets executed.
 
+The global variable C<$File::DesktopEntry::LOCALE> tells you what the default
+locale being used is. However, changing it will not change the default locale.
+
 =head1 AUTOLOAD
 
 All methods that start with a capital are autoloaded as C<get(KEY)> where
@@ -69,10 +71,17 @@ if no file was found, the XDG_DATA_HOME path will be used when writing.
 
 =cut
 
-# made "$_locale" global for testing purposes - consider it private
-our $_locale = '';
-eval { $_locale = _parse_lang( setlocale(LC_MESSAGES) ) };
-	# Need eval for non-POSIX platforms, e.g. Win32
+our $LOCALE = 'C';
+
+# POSIX setlocale(LC_MESSAGES) not supported on all platforms
+# so we do it ourselves ...
+# string might look like lang_COUNTRY.ENCODING@MODIFIER
+for (qw/LC_ALL LC_MESSAGES LANGUAGE LANG/) {
+	next unless $ENV{$_};
+	$LOCALE = $ENV{$_};
+	last;
+}
+our $_locale = _parse_lang($LOCALE);
 
 sub new {
 	my ($class, $file) = @_;
@@ -124,7 +133,7 @@ sub _parse_lang {
 		(?: _  ([^@\.]+) )?	# COUNTRY  $2
 		(?: \.  [^@]+    )?	# ENCODING 
 		(?: \@ (.+)      )?	# MODIFIER $3
-	$}x;
+	$}x or return '';
 	my ($l, $c, $m) = ($1, $2, $3);
 	my @locale = (
 		$l,

@@ -1,6 +1,6 @@
 ---
 name: File-DesktopEntry
-version: 0.03
+version: 0.04
 author:
   - 'Jaap Karssenberg <pardus@cpan.org>'
 abstract: Object to handle .desktop files
@@ -18,7 +18,7 @@ build_requires:
 provides:
   File::DesktopEntry:
     file: lib/File/DesktopEntry.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.2806
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

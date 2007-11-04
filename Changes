@@ -1,3 +1,7 @@
+0.04  Sun Nov  4 2007
+Hot fix release - POSIX does not export LC_MESSAGES on all platforms
+      - Removed POSIX dependency
+
 0.03  Sun Nov  4 2007
       - Added support for writing Desktop Entry files
       - Updated to version 1.0 of the specification
