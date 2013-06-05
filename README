@@ -16,7 +16,7 @@ To install this module type the following:
 DEPENDENCIES
 
 This module requires these other modules which can be obtained from
-the CPAN <http://cpan.org> if they are not allready installed on
+the CPAN <http://cpan.org> if they are not already installed on
 your system :
 
   Carp

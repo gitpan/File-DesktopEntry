@@ -1,3 +1,8 @@
+0.05  Wed Jun  5 2013
+      - Fixed tests on Windows - RT 45669
+      - Set perl 5.8.6 as minimum version - RT 42770 - ANDK
+      - Fixed link to freedesktop.org - RT 37320 - GWOLF
+
 0.04  Sun Nov  4 2007
 Hot fix release - POSIX does not export LC_MESSAGES on all platforms
       - Removed POSIX dependency

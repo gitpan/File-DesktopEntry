@@ -6,7 +6,7 @@ use Carp;
 use File::Spec;
 use File::BaseDir 0.03 qw/data_files data_home/;
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 our $VERBOSE = 0;
 
 if ($^O eq 'MSWin32') {
@@ -31,7 +31,7 @@ File::DesktopEntry - Object to handle .desktop files
 
 This module is used to work with F<.desktop> files. The format of these files
 is specified by the freedesktop "Desktop Entry" specification. This module can
-parse these files but also knows how to run the applciations defined by these
+parse these files but also knows how to run the applications defined by these
 files.
 
 For this module version 1.0 of the specification was used.
@@ -86,7 +86,7 @@ our $_locale = _parse_lang($LOCALE);
 sub new {
 	my ($class, $file) = @_;
 	my $self = bless {}, $class;
-	if (! defined $file) { # initialise new file
+	if (! defined $file) { # initialize new file
 		$self->set(Version => '1.0', Encoding => 'UTF-8');
 	}
 	elsif (ref $file)           { $self->read($file)   } # SCALAR
@@ -151,7 +151,7 @@ whether an application uses a VFS library.
 
 =item C<wants_list( )>
 
-Returns true if the Exec tring for this desktop entry specifies that the
+Returns true if the Exec string for this desktop entry specifies that the
 application can handle multiple arguments at once.
 
 =cut
@@ -278,7 +278,7 @@ Fields that are deprecated, but (still) supported by this module:
 The fields C<%n>, C<%N>, C<%v> and C<%m> are deprecated and will cause a
 warning if C<$VERBOSE> is used. Any other unknown fields will cause an error.
 
-The fields C<%F>, C<%U>, C<%D> and C<%i> can only occur as seperate words
+The fields C<%F>, C<%U>, C<%D> and C<%i> can only occur as separate words
 because they expand to multiple arguments.
 
 Also see L</LIMITATIONS>.
@@ -578,14 +578,10 @@ sub read {
 	unless (ref $file)  {
 		open $fh, "<$file" or croak "Could not open file: $file";
 	}
-	elsif ($] >= 5.008) {
+	else {
 		open $fh, '<', $file or croak "Could not open SCALAR ref !?";
 	}
-	else { # scalar ref needs dependency for perl < 5.008
-		require IO::Scalar;
-		$fh = IO::Scalar->new($file);
-	}
-	binmode $fh, ':utf8' unless $] < 5.008;
+	binmode $fh, ':utf8';
 	$self->read_fh($fh);
 	close $fh;
 }
@@ -718,18 +714,18 @@ C<file://> uri a bit different and it uses L<Win32::Process>. On other
 platforms your mileage may vary.
 
 Please note that the specification is targeting Unix platforms only and
-will only have limited relevance on other platforms. Any platform dependend
-behavior in this module should be considerd an extension of the spec.
+will only have limited relevance on other platforms. Any platform-dependent
+behavior in this module should be considered an extension of the spec.
 
 =cut
 
 if ($^O eq 'MSWin32') {
 	# Re-define some modules - I assume this block gets optimized away by the
-	# interpreter when not runnig on windows.
+	# interpreter when not running on windows.
 	no warnings;
 
 	# Wrap _paths() to remove first '/'
-	# As a special case tranlate SMB file:// uris
+	# As a special case translate SMB file:// uris
 	my $_paths = \&_paths;
 	*_paths = sub {
 		my @paths = map {
@@ -803,13 +799,13 @@ if an application supports urls.
 
 The values of the various Desktop Entry keys are not parsed (except for the
 Exec key). This means that booleans will be returned as the strings "true" and
-"false" and lists will still be ";" seperated.
+"false" and lists will still be ";" separated.
 
 If the icon is given as name and not as path it should be resolved for the C<%i>
-code in the Exec key. We need a seperate module for the icon spec to deal with
+code in the Exec key. We need a separate module for the icon spec to deal with
 this.
 
-Files are read and writen using utf8, this is not available on perl versions
+Files are read and written using utf8, this is not available on perl versions
 before 5.8. As a result for older perl versions translations in UTF-8 will not
 be translated properly.
 
@@ -830,7 +826,7 @@ modify it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<http://www.freedesktop.org/wiki/Specifications/desktop-entry-spec>
+L<http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html>
 
 L<File::BaseDir> and L<File::MimeInfo::Applications>
 

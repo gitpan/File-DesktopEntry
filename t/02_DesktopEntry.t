@@ -106,7 +106,7 @@ is(File::DesktopEntry->lookup('foo'), $file, 'lookup works 1');
 }
 
 # Test %U
-{
+if ( $^O ne 'MSWin32' ) {
 	my $entry = File::DesktopEntry->new($file);
 	$entry->set(Exec => q#fooview %%foo %U#);
 
@@ -117,6 +117,20 @@ is(File::DesktopEntry->lookup('foo'), $file, 'lookup works 1');
 	my @exec = $entry->parse_Exec('/usr/share', 'http://cpan.org');
 	is_deeply(\@exec,
 		['fooview', '%foo', 'file:///usr/share', 'http://cpan.org'],
+		"parse_Exec works with %U - list context");
+}
+# on Windows paths are different - lame fix for tests
+else {
+	my $entry = File::DesktopEntry->new($file);
+	$entry->set(Exec => q#fooview %%foo %U#);
+
+	my $exec = $entry->parse_Exec('C:/usr/share', 'http://cpan.org');
+	is($exec, q#fooview %foo file://C:/usr/share http://cpan.org#,
+		"parse_Exec works with %U");
+
+	my @exec = $entry->parse_Exec('C:/usr/share', 'http://cpan.org');
+	is_deeply(\@exec,
+		['fooview', '%foo', 'file://C:/usr/share', 'http://cpan.org'],
 		"parse_Exec works with %U - list context");
 }
 
