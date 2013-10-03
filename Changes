@@ -1,3 +1,6 @@
+0.07  Thu Oct  3 2013
+      - Fixed dependency on Win32 module.
+
 0.06  Thu Oct  3 2013
       - Switched to EU::MM
       - POD fix - RT 89116 - GWOLF

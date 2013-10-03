@@ -7,7 +7,6 @@ build_requires:
   File::BaseDir: 0.03
   File::Path: 0
   File::Spec: 0
-  Win32::Process: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 1
@@ -25,4 +24,4 @@ requires:
   perl: 5.008006
 resources:
   repository: https://github.com/mbeijen/File-DesktopEntry
-version: 0.06
+version: 0.07

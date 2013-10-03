@@ -19,7 +19,7 @@ WriteMakefile
      'File::Spec'     => 0,
      'File::Path'     => 0,
      'File::BaseDir'  => '0.03',
-     ($^O eq 'MSWin32' ? () : ('Win32::Process' => 0)),
+     ($^O eq 'MSWin32' ? ('Win32::Process' => 0) : ()),
    },
    'CONFIGURE_REQUIRES' => {
      "ExtUtils::MakeMaker" => "6.30"
