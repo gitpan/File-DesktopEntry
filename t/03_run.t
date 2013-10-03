@@ -10,7 +10,7 @@ $| = 1;
 
 print "1..4\n";
 
-my $perl = Module::Build->current->perl;
+my $perl = $^X;
 
 my $entry = File::DesktopEntry->new();
 $entry->set(

@@ -1,3 +1,7 @@
+0.06  Thu Oct  3 2013
+      - Switched to EU::MM
+      - POD fix - RT 89116 - GWOLF
+
 0.05  Wed Jun  5 2013
       - Fixed tests on Windows - RT 45669
       - Set perl 5.8.6 as minimum version - RT 42770 - ANDK

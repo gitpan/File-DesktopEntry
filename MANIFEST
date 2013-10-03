@@ -1,9 +1,8 @@
-Build.PL
 Changes
-configure
 lib/File/DesktopEntry.pm
 Makefile.PL
 MANIFEST
+META.json
 META.yml
 README
 t/01_data.t
@@ -12,4 +11,3 @@ t/03_run.t
 t/04_pod_ok.t
 t/05_pod_cover.t
 t/applications/foo.desktop
-META.json
