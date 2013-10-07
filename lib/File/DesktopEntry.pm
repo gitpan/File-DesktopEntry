@@ -1,12 +1,14 @@
 package File::DesktopEntry;
 
 use strict;
+use warnings;
+
 use vars qw/$AUTOLOAD/;
 use Carp;
 use File::Spec;
 use File::BaseDir 0.03 qw/data_files data_home/;
 
-our $VERSION = 0.07;
+our $VERSION = 0.08;
 our $VERBOSE = 0;
 
 if ($^O eq 'MSWin32') {
@@ -536,7 +538,6 @@ sub set {
 		$$self{groups}[$i] =~ s/^\Q$k\E=.*$/$k=$v/m and next;
 		$$self{groups}[$i] .= "$k=$v\n";
 	}
-	#use Data::Dumper; warn Dumper $self;
 }
 
 =item C<text()>
@@ -819,8 +820,11 @@ There is no support for Legacy-Mixed Encoding. Everybody is using utf8 now
 =head1 AUTHOR
 
 Jaap Karssenberg (Pardus) E<lt>pardus@cpan.orgE<gt>
+Maintained by Michiel Beijen E<lt>michielb@cpan.org<gt>
 
 Copyright (c) 2005, 2007 Jaap G Karssenberg. All rights reserved.
+
+=head1 LICENSE
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 

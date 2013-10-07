@@ -1,29 +1,32 @@
-0.07  Thu Oct  3 2013
-      - Fixed dependency on Win32 module.
+0.08 2013-10-07
+ - Corrected build instructinos.
 
-0.06  Thu Oct  3 2013
-      - Switched to EU::MM
-      - POD fix - RT 89116 - GWOLF
+0.07 2013-10-03
+ - Fixed dependency on Win32 module.
 
-0.05  Wed Jun  5 2013
-      - Fixed tests on Windows - RT 45669
-      - Set perl 5.8.6 as minimum version - RT 42770 - ANDK
-      - Fixed link to freedesktop.org - RT 37320 - GWOLF
+0.06 2013-10-03
+ - Switched to EU::MM
+ - POD fix - RT 89116 - GWOLF
 
-0.04  Sun Nov  4 2007
+0.05 2013-06-05 
+ - Fixed tests on Windows - RT 45669
+ - Set perl 5.8.6 as minimum version - RT 42770 - ANDK
+ - Fixed link to freedesktop.org - RT 37320 - GWOLF
+
+0.04 2007-11-04
 Hot fix release - POSIX does not export LC_MESSAGES on all platforms
-      - Removed POSIX dependency
+  - Removed POSIX dependency
 
-0.03  Sun Nov  4 2007
-      - Added support for writing Desktop Entry files
-      - Updated to version 1.0 of the specification
-      - Added much more sanity checks while handling data
-      - Extended unit tests to almost full coverage
-      - Added support for basic functions on Windows
+0.03 2007-11-04
+ - Added support for writing Desktop Entry files
+ - Updated to version 1.0 of the specification
+ - Added much more sanity checks while handling data
+ - Extended unit tests to almost full coverage
+ - Added support for basic functions on Windows
 
-0.02  Sat Oct  8 2005
-      - Fixed proper conversion between paths and uris
-      - Added wants_list() and wants_uris()
+0.02 2005-10-08
+ - Fixed proper conversion between paths and uris
+ - Added wants_list() and wants_uris()
 
-0.01  Mon Oct  3 2005
-      - Initial Release
+0.01 2005-10-03
+ - Initial Release
